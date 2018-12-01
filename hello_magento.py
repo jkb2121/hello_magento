@@ -39,14 +39,19 @@ m = OAuth1Session(oc_key,
 #
 
 # Call some individual customers
-# url = '{}/V1/customers/2'.format(API_URL)
-# url = '{}/V1/customers/1'.format(API_URL)
+# url = '{}/V1/customers/2'.format(api_url)
+# url = '{}/V1/customers/1'.format(api_url)
 
 # Get a specific product by SKU:
-sku = "F-AZAR-DR-SABL"
-url = '{}/V1/products/{}'.format(api_url, sku)
+# sku = "F-AZAR-DR-SABL"
+# url = '{}/V1/products/{}'.format(api_url, sku)
 
-#url = '{}/V1/categories/attributes/wood_finish'.format(API_URL)
+# Request a specific attribute set or list of attribute sets
+# url = '{}/V1/products/attribute-sets/9'.format(api_url)
+# url = '{}/V1/products/attribute-sets/sets/list?searchCriteria%5Bpage_size%5D=100'.format(api_url)
+
+# Request list of Attributes
+url = '{}/V1/categories/attributes?searchCriteria%5Bpage_size%5D=100'.format(api_url)
 r = m.get(url)
 j = json.loads(r.text)
 pprint.pprint(r)
