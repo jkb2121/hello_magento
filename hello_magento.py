@@ -41,6 +41,7 @@ m = OAuth1Session(oc_key,
 # Call some individual customers
 # url = '{}/V1/customers/2'.format(api_url)
 # url = '{}/V1/customers/1'.format(api_url)
+# url = '{}/V1/customers/search?searchCriteria%5Bpage_size%5D=100'.format(api_url)
 
 # Get a specific product by SKU:
 # sku = "F-AZAR-DR-SABL"
@@ -51,7 +52,11 @@ m = OAuth1Session(oc_key,
 # url = '{}/V1/products/attribute-sets/sets/list?searchCriteria%5Bpage_size%5D=100'.format(api_url)
 
 # Request list of Attributes
-url = '{}/V1/categories/attributes?searchCriteria%5Bpage_size%5D=100'.format(api_url)
+# url = '{}/V1/categories/attributes?searchCriteria%5Bpage_size%5D=100'.format(api_url)
+
+# Request list of Products
+# url = '{}/V1/products?searchCriteria%5Bpage_size%5D=100'.format(api_url)
+
 r = m.get(url)
 j = json.loads(r.text)
 pprint.pprint(r)
