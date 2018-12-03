@@ -55,7 +55,7 @@ m = OAuth1Session(oc_key,
 # url = '{}/V1/categories/attributes?searchCriteria%5Bpage_size%5D=100'.format(api_url)
 
 # Request list of Products
-# url = '{}/V1/products?searchCriteria%5Bpage_size%5D=100'.format(api_url)
+url = '{}/V1/products?searchCriteria%5Bpage_size%5D=100'.format(api_url)
 
 r = m.get(url)
 j = json.loads(r.text)
