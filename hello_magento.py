@@ -30,9 +30,9 @@ else:
 # Create the Oauth1 Session
 #
 m = OAuth1Session(oc_key,
-                        client_secret=oc_secret,
-                        resource_owner_key=oa_token,
-                        resource_owner_secret=oa_secret)
+                  client_secret=oc_secret,
+                  resource_owner_key=oa_token,
+                  resource_owner_secret=oa_secret)
 
 #
 # Now run some tests and lookups...
@@ -55,9 +55,59 @@ m = OAuth1Session(oc_key,
 # url = '{}/V1/categories/attributes?searchCriteria%5Bpage_size%5D=100'.format(api_url)
 
 # Request list of Products
-url = '{}/V1/products?searchCriteria%5Bpage_size%5D=100'.format(api_url)
+# url = '{}/V1/products?searchCriteria%5Bpage_size%5D=100'.format(api_url)
 
+# Request specific SKU
+# sku = 'WEL-BOLS-FLAT-18-S.GRN'
+# url = '{}/V1/products/{}'.format(api_url, sku)
+# #url = '{}/V1/products/{}/options'.format(api_url, sku)
+# r = m.get(url)
+# j = json.loads(r.text)
+# pprint.pprint(r)
+# pprint.pprint(j)
+
+# See Color:  {'attribute_code': 'color', 'value': '30'},
+
+# url = '{}/V1/configurable-products/{}/options/all'.format(api_url, "1436")
+# r = m.get(url)
+# j = json.loads(r.text)
+# pprint.pprint(r)
+# pprint.pprint(j)
+# # List of Colors associated to Configured Product: 1436
+
+
+# url = '{}/V1/configurable-products/{}/children'.format(api_url, "1436")
+# r = m.get(url)
+# j = json.loads(r.text)
+# pprint.pprint(r)
+# pprint.pprint(j)
+# # All Children and attribute values
+
+# Get Monster List of all Attributes
+url = '{}/V1/products/attributes?searchCriteria%5Bpage_size%5D=100'.format(api_url)
 r = m.get(url)
 j = json.loads(r.text)
 pprint.pprint(r)
 pprint.pprint(j)
+
+
+# Request specific Product 1000 (Akita Platform Bed)
+sku = '1000'
+url = '{}/V1/products/{}'.format(api_url, sku)
+#url = '{}/V1/products/{}/options'.format(api_url, sku)
+r = m.get(url)
+j = json.loads(r.text)
+pprint.pprint(r)
+pprint.pprint(j)
+
+for attrib in j['custom_attributes']:
+    print("Attribute: {}".format(attrib['attribute_code']))
+
+j['custom_attributes'].append({'attribute_code': 'platform_bed', 'value': '1'})
+print("--------------------------------------------------")
+pprint.pprint(j)
+#
+# data = {"product": j}
+# pr = m.put(url, json.dumps(data), headers={'Content-type': 'application/json' })
+# print("--------------------------------------------------")
+# pprint.pprint(pr.text)
