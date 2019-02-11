@@ -1,5 +1,6 @@
 magento_api_settings:
     api_endpoint: 'https://your.hostname.com/rest/all'
+    api_email:  'yourname@domain.com'
     consumer_key: 'lakjdfablahblahsomekeydataasdf45l'
     consumer_secret: 'kaskljdfblahblahsecretdata0l4uvf'
     access_token: 'asdfblahblahaccesstokenfafasdfdf'
