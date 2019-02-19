@@ -47,7 +47,7 @@ def update_price(sku, price):
 
     j = json.loads(r.text)
 
-    if (j['price'] - float(price)) < 0.001:
+    if abs(j['price'] - float(price)) < 0.001:
         print("No Update Needed for {} at price {}".format(sku, price))
     else:
         print("About to Update {} from {} to {}".format(sku, j['price'], price))
