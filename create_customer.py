@@ -40,6 +40,7 @@ m = OAuth1Session(oc_key,
 # ---------------------------------------------------------------------------------------------------------------------
 #
 # Add the customer to Magento using the Magento API, given the provided customer record data.
+# TODO: Need to populate the region_id as well, otherwise, it only displays the state name, not populate the value field
 #
 def add_customer(email, fname, lname, phone, addr1, addr2, city, state, zip, country):
 
@@ -75,6 +76,7 @@ def add_customer(email, fname, lname, phone, addr1, addr2, city, state, zip, cou
               {
                 "region": {
                   "region": state,
+                  "region_id": "TODO"  # TODO: Populate this from somewhere!
                 },
                 "country_id": country,
                 "street": [
