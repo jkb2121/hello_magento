@@ -175,7 +175,7 @@ m = OAuth1Session(oc_key,
 # Attempting To Change Virtual to Simple via API
 # We'll have a list of SKU to Price
 
-sku = 'F-AZAR-HC-CARA'
+sku = 'F-WATS-LOVE-ST.GY'
 
 # Request SKU
 url = '{}/V1/products/{}'.format(api_url, sku)
