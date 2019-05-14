@@ -175,7 +175,7 @@ m = OAuth1Session(oc_key,
 # Attempting To Change Virtual to Simple via API
 # We'll have a list of SKU to Price
 
-sku = 'F-WATS-LOVE-ST.GY'
+sku = 'F-SLMB-ST-F-SMO.C'
 
 # Request SKU
 url = '{}/V1/products/{}'.format(api_url, sku)
@@ -184,14 +184,13 @@ j = json.loads(r.text)
 
 pprint.pprint(j)
 
-print("Price = {}".format(j['price']))
-
-j['weight'] = 150
-j['type_id'] = 'simple'
-
-data = {"product": j}
-pr = m.put(url, json.dumps(data), headers={'Content-type': 'application/json' })
-
-pprint.pprint(pr)
+# print("Price = {}".format(j['price']))
+#
+# j['weight'] = 150
+# j['type_id'] = 'simple'
+#
+# data = {"product": j}
+# pr = m.put(url, json.dumps(data), headers={'Content-type': 'application/json' })
+# pprint.pprint(pr)
 
 

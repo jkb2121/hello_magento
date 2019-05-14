@@ -48,9 +48,9 @@ def update_price(sku, price):
     j = json.loads(r.text)
 
     if abs(j['price'] - float(price)) < 0.001:
-        print("No Update Needed for {} at price {}".format(sku, price))
+        print("- No Update Needed for {} at price {}".format(sku, price))
     else:
-        print("About to Update {} from {} to {}".format(sku, j['price'], price))
+        print("- About to Update {} from {} to {}".format(sku, j['price'], price))
 
         j['price'] = price
 
@@ -58,9 +58,9 @@ def update_price(sku, price):
         pr = m.put(url, json.dumps(data), headers={'Content-type': 'application/json' })
 
         if pr.status_code == 200:
-            print("Sku: {} - Success".format(sku))
+            print("- Sku: {} - Success".format(sku))
         else:
-            print("Sku: {} - Failed with Code {}".format(sku, pr.status_code))
+            print("- Sku: {} - Failed with Code {}".format(sku, pr.status_code))
 
 
 
@@ -82,6 +82,10 @@ with open(sys.argv[2], "r") as f:
         sku = p[0]
         price = p[1]
 
+        # if li < 100:
+        #     continue
+
+        print("{}. About to Update {} to {}".format(li, sku, price))
         update_price(sku, price)
         # print("Set {} to {}".format(sku, price))
 
