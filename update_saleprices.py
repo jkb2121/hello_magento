@@ -78,7 +78,7 @@ def update_sale_price(sku, price, date_from, date_to):
     if not updated_to:
         j['custom_attributes'].append({'attribute_code': 'special_to_date', 'value': date_to})
 
-    pprint.pprint(j)
+    # pprint.pprint(j)
     data = {"product": j}
     pr = m.put(url, json.dumps(data), headers={'Content-type': 'application/json' })
 
